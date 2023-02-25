@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Katibeh&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .3s;
+}
+
+body {
+  position: relative;
+  background-color: #fefbf0;
+  color: #675345;
+  font-family: 'Katibeh', cursive;
+  height: 100vh;
+  overflow: hidden;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 80px;
+  background-color: #f3ebd9;
+  z-index: 999;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header ul li {
+  padding: 0 10px;
+}
+
+ul li a {
+  position: relative;
+  color: #675345;
+  font-size: 22px;
+}
+
+li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #675345;
+  transition: width .4s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+.header img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* align-items: flex-start;
+  justify-content: center; */
+}
+
+.container .sideImg {
+  position: absolute;
+  left: 0;
+  top: -30px;
+  width: 140px;
+  height: 100vh;
+  background-image: url('https://user-images.githubusercontent.com/94912743/219951410-ac0011c8-febf-4d80-9b11-773d1f7cb996.png');
+  background-size: 100%;
+  background-repeat: repeat-y;
+  opacity: .2;
+  animation: scroll 12s linear infinite;
+}
+
+@keyframes scroll {
+  100% {
+    background-position-y: 60%;
+  }
+}
+
+.content {
+  margin-top: 60px;
+  margin-left: 30%;
+  direction: rtl;
+  width: 380px;
+  max-width: 380px;
+  z-index: 999;
+}
+
+.content h1 {
+  font-size: 100px;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+.content q {
+  padding: 40px;
+  font-size: 22px;
+  font-family: 'Amiri', serif;
+}
+
+.content p {
+  font-size: 22px;
+  margin: 26px 0;
+  font-family: 'Amiri', serif;
+}
+
+.content button {
+  position: relative;
+  background: none;
+  border: 2px solid #675345;
+  color: #675345;
+  font-size: 20px;
+  font-family: 'Amiri', serif;
+  margin-top: 16px;
+  padding: 4px 16px;
+  min-width: 200px;
+  cursor: pointer;
+  transition: color .4s linear;
+}
+
+button:hover {
+  color: #f3ebd9;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #675345;
+  z-index: -1;
+  transition: transform .5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(.5, 1.6, .4, .7);
+  transform: scaleX(0);
+}
+
+button:hover::before {
+  transform: scaleX(1);
+}
+
+.container .bottomImg {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 1px solid #675345;
+}
+
+.bottomImg img {
+  width: 600px;
+}
+
+.bottomImg img:nth-child(1) {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+}
+
+.bottomImg img:nth-child(2) {
+  position: absolute;
+  right: 40px;
+  bottom: 100px;
+  opacity: .4;
+  z-index: 1;
+  animation: animate 12s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width:1200px) {
+  .bottomImg img {
+    width: 450px;
+  }
+}
+
+@media (max-width:700px) {
+  .header {
+    justify-content: space-between;
+    padding: 14px;
+  }
+
+  .header ul li {
+    padding: 0 8px;
+  }
+  
+  ul li a {
+    font-size: 18px;
+  }
+  
+  .header img {
+    width: 150px;
+  }
+
+  .container .sideImg {
+    width: 100px;
+  }
+
+  .content {
+    margin-top: 0;
+    margin-right: 30px;
+    margin-left: 120px;
+    border: 1px solid #675345;
+  }
+  
+  .content h1 {
+    font-size: 80px;
+    margin-bottom: 40px;
+  }
+
+  .content q {
+    font-size: 18px;
+  }
+  
+  .content p {
+    font-size: 18px;
+  }
+  
+  .content button {
+    font-size: 18px;
+    min-width: 180px;
+  }
+
+  .bottomImg img {
+    width: 300px;
+  }
+
+  .bottomImg img:nth-child(2) {
+    bottom: 50px;
+  }
+}
